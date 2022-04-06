@@ -7,8 +7,9 @@ export const IndividualProject = ({project}) => {
     const [ showConfirm, setShowConfirm ]  = useState(false);
     const {projects, setProjects} = useGlobalContext();
 
-    const deleteProject = (prev) => {
-        setProjects(projects.filter(({id}) => id !== prev))
+    const deleteProject = (projectId) => {
+        setProjects(projects.filter(({id}) => id !== projectId))
+        console.log(deleteProject)
     }
     
     return (
@@ -28,7 +29,7 @@ export const IndividualProject = ({project}) => {
                             <p>Are you sure you want delete this project?</p>
                             <button 
                                 type="button"
-                                onClick={() => deleteProject()}
+                                onClick={() => deleteProject(project.id)}
                             >
                                 Delete
                             </button>
