@@ -7,8 +7,10 @@ export const AppProvider = ({children}) => {
     // const [projects, setProjects ] = useState([]);
     const [selectedProject, setSelectedProject ] = useState('INBOX');
 
+    
+
     useEffect(() => {
-    localStorage.getItem("projects", JSON.stringify(projects));
+    localStorage.setItem("projects", JSON.stringify(projects));
     }, [projects]);
 
     return (

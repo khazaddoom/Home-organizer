@@ -5,11 +5,12 @@ import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers'
 import { useGlobalContext} from '../context/index'
 
 export const Tasks = () => {
+
     const { projects, selectedProject  } = useGlobalContext();
     const [tasks, setTasks] = useState([]);
     const [archivedTasks, setArchivedTasks] = useState([]);
 
-    const [currentProjectName, setCurrentProjectName] = useState("");
+    
     
     let projectName = '';
 
@@ -25,6 +26,7 @@ export const Tasks = () => {
     useEffect(() => {
         document.title = `${projectName}: Home organizer`;
     }, [projectName]);
+
 
     return (
         <div className="tasks" >

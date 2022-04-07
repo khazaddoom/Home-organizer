@@ -7,9 +7,11 @@ export const IndividualProject = ({project}) => {
     const [ showConfirm, setShowConfirm, setSelectedProject ]  = useState(false);
     const {projects, setProjects, } = useGlobalContext();
 
-    const deleteProject = (projectId) => {
+ deleteProject = (projectId) => {
         setProjects(projects.filter(({id}) => id !== projectId))
-        
+       
+        // setProjects([ ...projects]);
+        // setSelectedProject('INBOX');
     }
     
     return (
