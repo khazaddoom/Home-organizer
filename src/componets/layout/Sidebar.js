@@ -76,18 +76,7 @@ export const Sidebar = () => {
     );
     
 };
-// console.log(Sidebar)
-// b= block
-// e= Element
-// m = modifier
 
 
 
 
-// export const Sidebar = () => {
-//     return (
-//         <p>
-//             I'm a Sidebar 
-//         </p>
-//     )
-// }

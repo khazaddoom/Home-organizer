@@ -1,25 +1,22 @@
 import React , {useState, useEffect } from "react";
 import { Checkbox } from "./Checkbox";
-// import { useTasks } from '../hooks/index'
 import { collatedTasks } from "../constants";
 import { getTitle, getCollatedTitle, collatedTasksExist } from '../helpers'
 import { useGlobalContext} from '../context/index'
 
 export const Tasks = () => {
-    const { projects  } = useGlobalContext();
-    const {selectedProject } = useGlobalContext();
+    const { projects, selectedProject  } = useGlobalContext();
     const [tasks, setTasks] = useState([]);
     const [archivedTasks, setArchivedTasks] = useState([]);
+
+    const [currentProjectName, setCurrentProjectName] = useState("");
     
     let projectName = '';
 
-    
-
-    
-    // if (projects && selectedProject && !collatedTasksExist(selectedProject)){
-    //     projectName = getTitle(projects, selectedProject).name;
-    //     console.log('projectName 1: ', projectName)
-    // }
+    if (projects && selectedProject && !collatedTasksExist(selectedProject)){
+        projectName = getTitle(projects, selectedProject).name;
+        console.log('projectName 1: ', projectName)
+    }
 
     if (collatedTasksExist(selectedProject) && selectedProject) {
         projectName = getCollatedTitle(collatedTasks, selectedProject).name;
@@ -31,8 +28,8 @@ export const Tasks = () => {
 
     return (
         <div className="tasks" >
-            <h2 data-testid="project-name">{projectName}</h2>
-
+            <h2>{projectName}</h2>
+            
             <ul className="tasks__list">
                 {tasks.map((task) =>(
                     <li key={`${task.id}`}>

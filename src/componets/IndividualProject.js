@@ -4,12 +4,12 @@ import{ useGlobalContext } from '../context/index'
 
 export const IndividualProject = ({project}) => {
 
-    const [ showConfirm, setShowConfirm ]  = useState(false);
-    const {projects, setProjects} = useGlobalContext();
+    const [ showConfirm, setShowConfirm, setSelectedProject ]  = useState(false);
+    const {projects, setProjects, } = useGlobalContext();
 
     const deleteProject = (projectId) => {
         setProjects(projects.filter(({id}) => id !== projectId))
-        console.log(deleteProject)
+        
     }
     
     return (
@@ -17,15 +17,13 @@ export const IndividualProject = ({project}) => {
             <span className="sidebar__dot">•</span>
             <span className="sidebar__project-name">{project.name}</span>
             <span 
-                className="sidebar__project-delete" data-testid="delate-project" 
+                className="sidebar__project-delete" 
                 onClick={() => setShowConfirm(!showConfirm)}
             >
                 <FaTrashAlt />
                 {showConfirm && (
                     <div className="project-delete-modal"> 
-                        <div
-                            className="project-delete-modal__inner"
-                        >
+                        <div className="project-delete-modal__inner" >
                             <p>Are you sure you want delete this project?</p>
                             <button 
                                 type="button"
@@ -44,5 +42,5 @@ export const IndividualProject = ({project}) => {
                 )}
             </span>
         </>
-    )
-}
+    );
+};

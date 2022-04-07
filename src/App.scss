@@ -222,7 +222,7 @@ header{
 
 /* Sidebar
 ================================= */
-.sidebar{
+.sidebar {
     @include no-select();
     width: 266px;
     height: calc(100vh);
@@ -243,16 +243,17 @@ header{
 
         &:hover .sidebar__project-delete{
             display: block;
+            
         }
     }
-
+   
     &__project {
         padding: 5px 0;
         cursor: pointer;
         
-        &-delate {
+        &-delete {
             margin-left: auto;
-            display: auto;
+            display: none;
 
             svg {
                 color: #cacaca;
@@ -299,7 +300,7 @@ header{
 
     &__dot {
         margin-right: 10px;
-        font-size: 30 px;
+        font-size: 30px;
     }
 
     &__middle {
@@ -309,50 +310,50 @@ header{
         border-bottom: $generic-border;
         padding-left: 10px;
         cursor: pointer;
-    }
+    
 
-    span {
-        color: #0000008a ;
+      span {
+          color: #0000008a ;
+          margin-right: 10px;
+
+          svg.hidden-projects {
+              transform: rotate(-90deg);
+          }
+      }
+
+      h2 {
+          margin: 0;
+          color: #333;
+          font-size: 15px;
+          font-weight: bold;
+          padding-bottom: 20px
+      }
+    }
+  &__generic {
+    li {
+      padding: 10px 0px 10px 10px;
+      list-style-type: none;
+      color: #333;
+      display: flex;
+      cursor: pointer;
+      line-height: 1.5;
+      font-size: 15px;
+
+      span:first-of-type {
         margin-right: 10px;
 
-        svg.hidden-projects {
-            transform: rotate(-90deg);
+        svg {
+            width: 18px;
+            height: 18px;
+            color: #555;
         }
+      }
+      &.active, &:hover {
+          font-weight: bold;
+          background-color: white;
+      } 
     }
-
-    h2 {
-        margin: 0;
-        color: #333;
-        font-size: 15px;
-        font-weight: bold;
-        padding-bottom: 20px
-    }
-
-    &__generic {
-        li {
-            padding: 10px 0px 10px 10px;
-            list-style-type: none;
-            color: #333;
-            display: flex;
-            cursor: pointer;
-            line-height: 1.5;
-            font-size: 15px;
-    
-            span:first-of-type {
-                margin-right: 10px;
-    
-                svg {
-                    width: 18px;
-                    height: 18px;
-                    color: #555;
-                }
-            }
-            &.active, &:hover {
-                font-weight: bold;
-                background-color: white;
-            }
-        }
-    }
+  }
 }
 
 /* Show Confirm Delete 

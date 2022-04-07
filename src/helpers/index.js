@@ -6,7 +6,7 @@ export const getTitle = (projects, id) =>
 export const getCollatedTitle = (projects, key) =>
     projects.find(project => project.key === key);
 
-
+// daj mi jeden z inbox today, next 7 day
 export const collatedTasksExist = selectedProject => 
 collatedTasks.find(task => task.key === selectedProject);
 
