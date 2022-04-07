@@ -4,12 +4,11 @@ import{ useGlobalContext } from '../context/index'
 
 export const IndividualProject = ({project}) => {
 
-    const [ showConfirm, setShowConfirm, setSelectedProject ]  = useState(false);
-    const {projects, setProjects, } = useGlobalContext();
+    const [ showConfirm, setShowConfirm ]  = useState(false);
+    const {projects, setProjects, setSelectedProject } = useGlobalContext();
 
- deleteProject = (projectId) => {
+    const deleteProject = (projectId) => {
         setProjects(projects.filter(({id}) => id !== projectId))
-       
         // setProjects([ ...projects]);
         // setSelectedProject('INBOX');
     }
