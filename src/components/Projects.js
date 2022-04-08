@@ -27,7 +27,7 @@ export const Projects = ({activeValue = null}) => {
                         setSelectedProject(project.id)
                     }}
                 >
-                    <IndividualProject project={project}/>
+                    {project && <IndividualProject project={project}/>}
                     
                 </li> 
             ) 

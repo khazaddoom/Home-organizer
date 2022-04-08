@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { FaTrashAlt } from 'react-icons/fa'
 import{ useGlobalContext } from '../context/index'
 
@@ -8,28 +8,18 @@ export const IndividualProject = ({project}) => {
     const [ showConfirm, setShowConfirm ]  = useState(false);
     const {projects, setProjects, setSelectedProject } = useGlobalContext();
 
-    // const deleteProject = (project) => {
-    //     setProjects(projects.filter(({id}) => id !== project))
-    //     // setProjects([ ...projects]);
-    //     // setSelectedProject('INBOX');
-    // }
-
- 
-
-
     const deleteProject = (projectId) => {
-        setProjects(projects.filter(({id}) => id !== projectId))
+        if (projects && setProjects && setSelectedProject ) {
+
+
+            setProjects(projects.filter(({id}) => id !== projectId))
+            console.log(setProjects)
+            console.log('id', projects.filter(({id}) => id !== projectId))
+        }
         // setProjects([ ...projects]);
         // setSelectedProject('INBOX');
         // if ()
     }
-
-
-    
-    // useEffect(() => {
-        
-    // },[projects])
- 
 
     return (
         <>
