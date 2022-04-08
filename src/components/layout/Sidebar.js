@@ -1,19 +1,19 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { 
     FaChevronDown, 
     FaInbox, 
     FaRegCalendarAlt, 
     FaRegCalendar,
 } from "react-icons/fa";
-import {useGlobalContext} from '../../context/index';
-import {Projects} from '../Projects'
+import { useGlobalContext } from '../../context/index';
+import { Projects } from '../Projects'
 import { AddProject } from "../AddProject";
 
 
 export const Sidebar = () => { 
-    const {setSelectedProject} = useGlobalContext();
-    const [active, setActive] = useState('inbox');
-    const [showProjects, setShowProjects] = useState(true);
+    const { setSelectedProject } = useGlobalContext();
+    const [ active, setActive ] = useState('inbox');
+    const [ showProjects, setShowProjects ] = useState(true);
 
     return (
         <div className="sidebar">
@@ -66,15 +66,17 @@ export const Sidebar = () => {
                 </span>
                 <h2>Projects</h2>
             </div>
-
             <ul className="sidebar__projects">
-                {showProjects && <Projects />}
+                {showProjects && 
+                    <Projects 
+                        active={active}
+                        setActive={setActive}    
+                    />
+                }
             </ul>
             {showProjects && <AddProject />}   
-            
         </div>
     );
-    
 };
 
 

@@ -8,28 +8,26 @@ export const IndividualProject = ({project}) => {
     const [ showConfirm, setShowConfirm ]  = useState(false);
     const {projects, setProjects, setSelectedProject } = useGlobalContext();
 
-    // const deleteProject = (project) => {
-    //     setProjects(projects.filter(({id}) => id !== project))
-    //     // setProjects([ ...projects]);
-    //     // setSelectedProject('INBOX');
-    // }
 
  
+
+
+    // const deleteProject = (projectId) => {
+    //     setProjects(projects.filter(({id}) => id !== projectId))
+
+    // }
 
 
     const deleteProject = (projectId) => {
-        setProjects(projects.filter(({id}) => id !== projectId))
-        // setProjects([ ...projects]);
-        // setSelectedProject('INBOX');
-        // if ()
+        if (projects && setProjects && setSelectedProject ) {
+            setProjects(projects.filter(({id}) => id !== projectId))
+            console.log(setProjects)
+            console.log('id', projects.filter(({id}) => id !== projectId))
+        }
     }
 
 
-    
-    // useEffect(() => {
-        
-    // },[projects])
- 
+
 
     return (
         <>

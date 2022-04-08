@@ -14,8 +14,12 @@ export const Tasks = () => {
     let projectName = '';
 
     if (projects && selectedProject && !collatedTasksExist(selectedProject)){
-        projectName = getTitle(projects, selectedProject).name;
-        console.log('projectName 1: ', projectName)
+        // projectName = getTitle(projects, selectedProject).name;
+        // console.log('projectName 1: ', projectName)
+        projectName = getTitle(projects, selectedProject);
+        if(projectName) {
+            console.log('projectName 1: ', projectName.name)            
+        }
     }
 
     if (collatedTasksExist(selectedProject) && selectedProject) {
@@ -29,7 +33,8 @@ export const Tasks = () => {
 
     return (
         <div className="tasks" >
-            <h2>{projectName}</h2>
+            {/* <h2>{projectName}</h2> */}
+            {projectName != null && <h2>{projectName.name}</h2>}
             
             <ul className="tasks__list">
                 {tasks.map((task) =>(

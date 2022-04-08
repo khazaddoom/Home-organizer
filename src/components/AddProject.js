@@ -16,7 +16,7 @@ export const AddProject = () => {
             id: projectId,
             name: projectName,
         }
-        setProjects([newProject, ...projects]);
+        setProjects([...projects, newProject]);
         setProjectName('');
         setShow(false)
         

@@ -10,39 +10,66 @@ export const AddTask = ({
     showQuickAddTask,
     setShowQuickAddTask,
 }) => {
-    const [ task, setTask] = useState('');
+    const [ task, setTask] = useState([]);
     const [ taskDate, setTaskDate] = useState('');
     const [ project, setProject] = useState('');
     const [ showMain, setShowMain] = useState(shouldShowMain);
     const [ showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [ showTaskDate, setShowTaskDate] = useState(false);
+    const [taskStore, setTaskStore] = useState([])
 
     const {selectedProject} = useGlobalContext();
 
+    const getCollatedDate = (projectId) => {
+        const today = moment()
+        const projects = {
+            'TODAY': today.format('DD/MM/YYYY'),
+            'NEXT_7': today.add(7, 'days')
+        }
+        return projects[projectId] ? projects[projectId] : null;
+    }
+
+    
+
+
     const addTask = () => {
         const projectId = project || selectedProject;
-        let collatedDate = '';
 
-        if (projectId === 'TODAY') {
-            collatedDate = moment().format('DD/MM/YYYY')
-        } else if (projectId === 'NEXT_7') {
-            collatedDate = moment()
-            .add(7, 'days')
-            .format('DD/MM/YYYY')
+
+        // let collatedDate = '';
+
+        // if (projectId === 'TODAY') {
+        //     collatedDate = moment().format('DD/MM/YYYY')
+        // } else if (projectId === 'NEXT_7') {
+        //     collatedDate = moment()
+        //     .add(7, 'days')
+        //     .format('DD/MM/YYYY')
+        // }
+        const collatedDate = getCollatedDate(projectId);
+
+        const newTask = {
+            id: projectId,
+            name: task,
+            date: collatedDate || taskDate,
         }
 
-        const addTask = () => {
-            const newTask = {
-                id: projectId,
-                name: task,
-                // date: collatedDate || taskDate,
+        setTaskStore([...taskStore, newTask])
+        setProject('')
+        setShowMain('')
+        setShowProjectOverlay(false)
 
-            }
-            setTask([newTask,...task])
-            setProject('')
-            setShowMain('')
-            setShowProjectOverlay(false)
-        }
+        // const addTask = () => {
+        //     const newTask = {
+        //         id: projectId,
+        //         name: task,
+        //         // date: collatedDate || taskDate,
+
+        //     }
+        //     setTask([newTask,...task])
+        //     setProject('')
+        //     setShowMain('')
+        //     setShowProjectOverlay(false)
+        // }
 
         // return (
         //     task && 

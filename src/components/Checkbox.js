@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 
-
-
-
 export const Checkbox = ({ id }) => {
     const [isArchive, setIsArchive] = useState(false);
-
     const archiveTask = () => {
         setIsArchive(!isArchive);
     };
@@ -17,5 +13,5 @@ export const Checkbox = ({ id }) => {
         >
             <span className='checkbox'/>
         </div>
-    )
+    );
 };

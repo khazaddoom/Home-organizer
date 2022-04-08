@@ -1,7 +1,15 @@
 import { collatedTasks } from '../constants/index'
 
-export const getTitle = (projects, id) =>
-    projects.find(project => project.id === id);
+// export const getTitle = (projects, id) =>
+//     projects.find(project => project.id === id);
+
+export const getTitle = (projects, id) => {
+    if (Array.isArray(projects) && id) {
+        return projects.find(project => project.id === id);
+    }
+    console.error('Something went wrong');
+    return null;
+}
     
 export const getCollatedTitle = (projects, key) =>
     projects.find(project => project.key === key);

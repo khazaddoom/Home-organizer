@@ -2,8 +2,7 @@ import React, {useState} from "react";
 import {useGlobalContext} from '../context/index';
 import { IndividualProject } from "./IndividualProject";
 
-export const Projects = ({activeValue = null}) => {
-    const [active, setActive] = useState(activeValue);
+export const Projects = ({active, setActive}) => {
     const {projects, setSelectedProject} = useGlobalContext();
     
     return (
@@ -27,7 +26,9 @@ export const Projects = ({activeValue = null}) => {
                         setSelectedProject(project.id)
                     }}
                 >
-                    <IndividualProject project={project}/>
+                    {/* <IndividualProject project={project}/> */}
+
+                    {project && <IndividualProject project={project}/>}
                     
                 </li> 
             ) 
