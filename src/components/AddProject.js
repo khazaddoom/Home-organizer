@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import { generatePushId } from "../helpers/index";
 import { useGlobalContext } from "../context/index";
 
-export const AddProject = ({shouldShow = false}) => {
-    const [show, setShow] = useState(shouldShow);
+export const AddProject = () => {
+    const [show, setShow] = useState(false);
     const [projectName, setProjectName] = useState('');
     
     const projectId = generatePushId();

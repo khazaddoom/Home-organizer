@@ -1,6 +1,6 @@
 import './App.scss';
-import { Header } from './componets/layout/Header';
-import { Content } from './componets/layout/Content'
+import { Header } from './components/layout/Header';
+import { Content } from './components/layout/Content'
 
 
 function App() {
