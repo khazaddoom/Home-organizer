@@ -12,6 +12,7 @@ export const AppProvider = ( props ) => {
 
     const [ projects, setProjects ] = useState(localStorage.projects ? JSON.parse(localStorage.projects) : []);
     const [selectedProject, setSelectedProject ] = useState('INBOX');
+    const [taskStore, setTaskStore] = useState([])
 
     useEffect(() => {
         localStorage.setItem("projects", JSON.stringify(projects));
@@ -23,7 +24,9 @@ export const AppProvider = ( props ) => {
                 projects, 
                 setProjects,
                 selectedProject,
-                setSelectedProject
+                setSelectedProject,
+                taskStore,
+                setTaskStore
             }}
         >
             {props.children}

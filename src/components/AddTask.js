@@ -16,9 +16,13 @@ export const AddTask = ({
     const [ showMain, setShowMain] = useState(shouldShowMain);
     const [ showProjectOverlay, setShowProjectOverlay] = useState(false);
     const [ showTaskDate, setShowTaskDate] = useState(false);
-    const [taskStore, setTaskStore] = useState([])
 
-    const {selectedProject} = useGlobalContext();
+    const { projects, 
+        setProjects,
+        selectedProject,
+        setSelectedProject,
+        taskStore,
+        setTaskStore } = useGlobalContext();
 
     const getCollatedDate = (projectId) => {
         const today = moment()
